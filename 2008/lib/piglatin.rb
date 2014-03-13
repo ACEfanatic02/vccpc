@@ -3,7 +3,7 @@ class PigLatin
 
   def translate word
     ['a', 'e', 'i', 'u', 'o'].each do |vowel|
-      if word[0] == vowel
+      if word[0].downcase == vowel
         return word + "ay"
       end
     end

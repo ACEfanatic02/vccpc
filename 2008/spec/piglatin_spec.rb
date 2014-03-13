@@ -13,5 +13,17 @@ describe PigLatin do
       pl = PigLatin.new
       pl.translate("hello").should eq "ellohay"
     end
+
+    it 'should work with mixed case words' do
+      pl = PigLatin.new
+      pl.translate("Apple").should eq "Appleay"
+      pl.translate("Hello").should eq "elloHay"
+    end
+
+    it 'should not change the case of any letters' do
+      pl = PigLatin.new
+      pl.translate("APPLE").should eq "APPLEay"
+      pl.translate("HELLO").should eq "ELLOHay"
+    end
   end
 end
