@@ -11,5 +11,17 @@ describe '#classify' do
 
   it 'maps equivelent word patterns to same string' do
     classify('bar').should eq classify('baz')
+    classify('well').should_not eq classify('that')
+  end
+end
+
+describe '#classify_sentence' do
+
+  it 'returns a map from word patterns to words' do
+    exp_a = { 
+      "abb" => ["foo"],
+      "abc" => ["bar", "baz"]
+    }
+    classify_sentence('foo bar baz').should eq exp_a
   end
 end
