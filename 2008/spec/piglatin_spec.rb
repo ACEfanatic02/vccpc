@@ -24,6 +24,7 @@ describe PigLatin do
       pl = PigLatin.new
       pl.translate("APPLE").should eq "APPLEay"
       pl.translate("HELLO").should eq "ELLOHay"
+      pl.translate("This").should eq "hisTay"
     end
   end
 end

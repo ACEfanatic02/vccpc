@@ -1,0 +1,14 @@
+#!/usr/bin/env ruby
+
+require_relative 'lib/piglatin'
+require_relative 'lib/tokenizer'
+
+pl = PigLatin.new
+ARGV.each do |line|
+
+  Tokenizer.new(line).each do |token|
+    print pl.translate token
+    print " "
+  end
+  puts
+end
