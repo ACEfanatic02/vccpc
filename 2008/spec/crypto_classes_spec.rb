@@ -9,7 +9,7 @@ describe '#classify' do
     classify('moon').should eq 'abbc'
   end
 
-  it 'maps equivelent word patterns to same string' do
+  it 'maps equivalent word patterns to same string' do
     classify('bar').should eq classify('baz')
     classify('well').should_not eq classify('that')
   end
@@ -18,10 +18,10 @@ end
 describe '#classify_sentence' do
 
   it 'returns a map from word patterns to words' do
-    exp_a = { 
+    expected = { 
       "abb" => ["foo"],
       "abc" => ["bar", "baz"]
     }
-    classify_sentence('foo bar baz').should eq exp_a
+    classify_sentence('foo bar baz').should eq expected
   end
 end
