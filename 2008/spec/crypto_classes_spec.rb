@@ -13,6 +13,11 @@ describe '#classify' do
     classify('bar').should eq classify('baz')
     classify('well').should_not eq classify('that')
   end
+
+  it 'ignores case in the translation' do
+    classify('YABBA').should eq 'abccb'
+    classify('YABBA').should eq classify('DABBA')
+  end
 end
 
 describe '#classify_sentence' do
@@ -23,5 +28,12 @@ describe '#classify_sentence' do
       "abc" => ["bar", "baz"]
     }
     classify_sentence('foo bar baz').should eq expected
+  end
+
+  it 'returns map with words in original case' do
+    expected = {
+      'abccb' => ['YABBA', 'DABBA']
+    }
+    classify_sentence('YABBA DABBA').should eq expected
   end
 end
