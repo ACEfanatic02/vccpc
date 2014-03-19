@@ -1,0 +1,24 @@
+#!/usr/bin/env ruby
+
+require_relative 'lib/treasure'
+
+map_no = 1
+ARGF.each_line do |line|
+  break if line.strip == "END"
+  tm = TreasureMap.new
+
+  line = line.strip.chomp('.')
+
+  line.split(', ').each do |entry|
+    tm.feed(entry)
+  end
+
+  x, y = tm.pos
+  dist = tm.distance
+
+  puts "Map ##{map_no}"
+  puts "The treasure is located at (#{x}, #{y})."
+  puts "The distance to the treasure is #{dist}."
+
+  map_no += 1
+end
