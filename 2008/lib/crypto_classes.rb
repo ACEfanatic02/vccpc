@@ -1,4 +1,4 @@
-require 'tokenizer'
+require_relative 'tokenizer'
 
 ALPHABET = "abcdefghijklmnopqrstuvwxyz"
 

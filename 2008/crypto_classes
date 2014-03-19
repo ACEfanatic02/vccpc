@@ -1,0 +1,19 @@
+#!/usr/bin/env ruby
+
+require_relative 'lib/crypto_classes'
+
+lines = ARGF.each_line
+record_count = lines.first.to_i
+
+record_count.times do |_|
+  sentence = ""
+  until (cur = lines.next) == "----"
+    sentence << cur
+  end
+  map = classify_sentence(sentence)
+
+  map.each do |k, v|
+    puts v.join(" ")
+  end
+  puts "----"
+end
