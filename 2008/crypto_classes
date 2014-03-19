@@ -7,7 +7,7 @@ record_count = lines.first.to_i
 
 record_count.times do |_|
   sentence = ""
-  until (cur = lines.next) == "----"
+  until (cur = lines.next).strip == "----"
     sentence << cur
   end
   map = classify_sentence(sentence)
